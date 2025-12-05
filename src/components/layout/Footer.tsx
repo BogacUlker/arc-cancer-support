@@ -1,5 +1,6 @@
 import Link from "next/link"
-import { Facebook, Instagram, Linkedin, Youtube, Phone, Mail } from "lucide-react"
+import Image from "next/image"
+import { Facebook, Instagram, Linkedin, Youtube, Phone, Mail, MapPin, Clock } from "lucide-react"
 
 // X (Twitter) icon component
 function XIcon({ className }: { className?: string }) {
@@ -15,25 +16,19 @@ export function Footer() {
     <footer className="bg-white border-t">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Column 1: Logo & Contact */}
+          {/* Column 1: Logo & About */}
           <div className="space-y-4">
-            <div className="w-20 h-20 bg-gradient-to-br from-green-600 to-green-700 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-2xl">ARC</span>
-            </div>
+            <Image
+              src="/ARC.png"
+              alt="ARC Cancer Support Centres"
+              width={140}
+              height={70}
+              className="h-16 w-auto"
+            />
             <p className="text-sm text-muted-foreground">
               ARC Cancer Support provides free support services to anyone affected by cancer,
-              as well as their families, friends, and carers throughout Ireland.
+              as well as their families, friends, and carers.
             </p>
-            <div className="space-y-2">
-              <div className="flex items-center gap-2 text-sm">
-                <Phone className="h-4 w-4 text-primary" />
-                <span>+353 1 234 5678</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm">
-                <Mail className="h-4 w-4 text-primary" />
-                <span>info@arccancersupport.ie</span>
-              </div>
-            </div>
             <div className="flex gap-3 pt-2">
               <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
                 <Facebook className="h-5 w-5" />
@@ -53,59 +48,61 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Column 2: Quick Links */}
+          {/* Column 2: Our Location */}
           <div className="space-y-4">
-            <h3 className="font-semibold text-lg">Quick Links</h3>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><Link href="/volunteer" className="hover:text-primary transition-colors">Volunteer</Link></li>
-              <li><Link href="#" className="hover:text-primary transition-colors">Donate</Link></li>
-              <li><Link href="#" className="hover:text-primary transition-colors">Our Services</Link></li>
-              <li><Link href="#" className="hover:text-primary transition-colors">Events</Link></li>
-              <li><Link href="#" className="hover:text-primary transition-colors">News</Link></li>
-            </ul>
+            <h3 className="font-semibold text-lg">Our Location</h3>
+            <div className="space-y-3 text-sm text-muted-foreground">
+              <div className="flex items-start gap-2">
+                <MapPin className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                <div>
+                  <p className="font-medium text-foreground">ARC Cancer Support Centre</p>
+                  <p>65 Eccles Street</p>
+                  <p>Dublin 7, D07 KW9H</p>
+                  <p>Ireland</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-2">
+                <Clock className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                <div>
+                  <p>Monday - Friday</p>
+                  <p>9:00 AM - 5:00 PM</p>
+                </div>
+              </div>
+            </div>
           </div>
 
-          {/* Column 3: Support */}
+          {/* Column 3: Get In Touch */}
           <div className="space-y-4">
-            <h3 className="font-semibold text-lg">Support</h3>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><Link href="#" className="hover:text-primary transition-colors">Contact Us</Link></li>
+            <h3 className="font-semibold text-lg">Get In Touch</h3>
+            <div className="space-y-3 text-sm text-muted-foreground">
+              <div className="flex items-center gap-2">
+                <Phone className="h-4 w-4 text-primary" />
+                <span>+353 1 234 5678</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Mail className="h-4 w-4 text-primary" />
+                <span>info@arccancersupport.ie</span>
+              </div>
+            </div>
+            <ul className="space-y-2 text-sm text-muted-foreground pt-2">
+              <li><Link href="/contact" className="hover:text-primary transition-colors">Contact Us</Link></li>
               <li><Link href="#" className="hover:text-primary transition-colors">FAQs</Link></li>
               <li><Link href="#" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
               <li><Link href="#" className="hover:text-primary transition-colors">Terms of Service</Link></li>
             </ul>
-            <div className="flex gap-3 pt-4">
-              <Facebook className="h-5 w-5 text-muted-foreground" />
-              <Instagram className="h-5 w-5 text-muted-foreground" />
-              <Linkedin className="h-5 w-5 text-muted-foreground" />
-              <XIcon className="h-5 w-5 text-muted-foreground" />
-            </div>
           </div>
 
-          {/* Column 4: Location Map */}
+          {/* Column 4: Ways To Help */}
           <div className="space-y-4">
-            <h3 className="font-semibold text-lg">Find Us</h3>
-            <p className="text-sm text-muted-foreground">
-              ARC Cancer Support Centre<br />
-              65 Eccles Street<br />
-              Dublin 7, D07 KW9H<br />
-              Ireland
-            </p>
-            {/* Map Placeholder */}
-            <div className="w-full h-40 bg-gray-100 rounded-lg relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-100">
-                {/* Simplified map visualization */}
-                <div className="absolute inset-4">
-                  <div className="w-full h-full border border-gray-300 rounded">
-                    <div className="absolute top-1/4 left-1/4 w-1/2 h-1/2 border-l-2 border-t-2 border-yellow-400 transform rotate-12"></div>
-                    <div className="absolute top-1/3 left-1/3 w-1/3 h-1/3 bg-green-100/50 rounded"></div>
-                    <div className="absolute bottom-1/4 right-1/4 w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center">
-                      <div className="w-3 h-3 bg-primary rounded-full"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <h3 className="font-semibold text-lg">Ways To Help</h3>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              <li><Link href="/donate" className="hover:text-primary transition-colors">Donate</Link></li>
+              <li><Link href="/volunteer" className="hover:text-primary transition-colors">Become a Volunteer</Link></li>
+              <li><Link href="/volunteer-dashboard" className="hover:text-primary transition-colors">Volunteer Dashboard</Link></li>
+              <li><Link href="#" className="hover:text-primary transition-colors">Fundraise for Us</Link></li>
+              <li><Link href="#" className="hover:text-primary transition-colors">Corporate Partnerships</Link></li>
+              <li><Link href="#" className="hover:text-primary transition-colors">Leave a Legacy</Link></li>
+            </ul>
           </div>
         </div>
 
