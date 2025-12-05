@@ -309,8 +309,8 @@ export default function VolunteerPage() {
             <Button variant="secondary" size="lg" asChild>
               <Link href="/volunteer/sign-up">Apply Now</Link>
             </Button>
-            <Button variant="outline" size="lg" className="text-white border-white hover:bg-white/10">
-              Contact Us
+            <Button variant="outline" size="lg" className="bg-white text-primary border-white hover:bg-white/90" asChild>
+              <Link href="/contact">Contact Us</Link>
             </Button>
           </div>
         </div>

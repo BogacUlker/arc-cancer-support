@@ -6,27 +6,14 @@ import { Input } from "@/components/ui/input"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import {
   Heart,
-  Info,
-  FileText,
-  Home as HomeIcon,
+  Users,
+  BookOpen,
+  MapPin,
   ChevronLeft,
   ChevronRight,
-  Facebook,
-  Instagram,
-  Linkedin,
-  Youtube
 } from "lucide-react"
 import Link from "next/link"
 import { useState } from "react"
-
-// X icon component
-function XIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-    </svg>
-  )
-}
 
 export default function HomePage() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0)
@@ -41,6 +28,33 @@ export default function HomePage() {
       quote: "The community here is incredible. Everyone understands what you're going through, and the programs they offer gave me hope and strength during my treatment journey.",
       author: "Michael O.",
       role: "Cancer Survivor"
+    }
+  ]
+
+  const helpCards = [
+    {
+      icon: Heart,
+      title: "Support Services",
+      description: "Access our range of free support services including counselling, therapy sessions, and emotional support for patients and families.",
+      href: "/services"
+    },
+    {
+      icon: Users,
+      title: "Join Our Community",
+      description: "Connect with others who understand your journey. Our support groups and community events provide a safe space for sharing and healing.",
+      href: "/volunteer-community"
+    },
+    {
+      icon: BookOpen,
+      title: "Resources & Information",
+      description: "Find comprehensive cancer information, practical guides, and educational materials to help you navigate your journey.",
+      href: "/resources"
+    },
+    {
+      icon: MapPin,
+      title: "Visit Our Centre",
+      description: "Located in Dublin, our welcoming centre offers a peaceful environment with access to all our services and support programs.",
+      href: "/contact"
     }
   ]
 
@@ -66,11 +80,11 @@ export default function HomePage() {
               support you through every step of your journey.
             </p>
             <div className="flex gap-4">
-              <Button className="bg-primary hover:bg-primary/90">
-                Get Support
+              <Button className="bg-primary hover:bg-primary/90" asChild>
+                <Link href="/donate">Donate</Link>
               </Button>
-              <Button variant="outline">
-                Learn More
+              <Button variant="outline" asChild>
+                <Link href="/volunteer">Become a Volunteer</Link>
               </Button>
             </div>
           </div>
@@ -88,48 +102,34 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Quick Links Section - 4 Icon Cards */}
+      {/* How Can We Help Section - Enhanced Cards with Descriptions */}
       <section className="bg-gray-50 py-12">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl font-semibold text-center mb-8">How Can We Help?</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <Card className="text-center hover:shadow-lg transition-shadow cursor-pointer">
-              <CardContent className="pt-6 pb-4">
-                <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Heart className="h-6 w-6 text-primary" />
-                </div>
-                <p className="text-sm font-medium">Support Services</p>
-              </CardContent>
-            </Card>
-            <Card className="text-center hover:shadow-lg transition-shadow cursor-pointer">
-              <CardContent className="pt-6 pb-4">
-                <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Info className="h-6 w-6 text-primary" />
-                </div>
-                <p className="text-sm font-medium">About Cancer</p>
-              </CardContent>
-            </Card>
-            <Card className="text-center hover:shadow-lg transition-shadow cursor-pointer">
-              <CardContent className="pt-6 pb-4">
-                <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-primary/10 flex items-center justify-center">
-                  <FileText className="h-6 w-6 text-primary" />
-                </div>
-                <p className="text-sm font-medium">Resources</p>
-              </CardContent>
-            </Card>
-            <Card className="text-center hover:shadow-lg transition-shadow cursor-pointer">
-              <CardContent className="pt-6 pb-4">
-                <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-primary/10 flex items-center justify-center">
-                  <HomeIcon className="h-6 w-6 text-primary" />
-                </div>
-                <p className="text-sm font-medium">Visit Us</p>
-              </CardContent>
-            </Card>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {helpCards.map((card, index) => {
+              const IconComponent = card.icon
+              return (
+                <Link key={index} href={card.href}>
+                  <Card className="h-full hover:shadow-lg transition-shadow cursor-pointer group">
+                    <CardContent className="pt-6 pb-6 space-y-3">
+                      <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                        <IconComponent className="h-7 w-7 text-primary" />
+                      </div>
+                      <h3 className="font-semibold text-lg">{card.title}</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {card.description}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </Link>
+              )
+            })}
           </div>
           {/* CTA Button below cards */}
           <div className="flex justify-center mt-8">
-            <Button size="lg" className="px-8">
-              View All Services
+            <Button size="lg" className="px-8" asChild>
+              <Link href="/services">View All Services</Link>
             </Button>
           </div>
         </div>
@@ -195,71 +195,23 @@ export default function HomePage() {
       {/* Newsletter / CTA Section */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-semibold text-center mb-8">Stay Connected</h2>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Button size="lg">Subscribe to Newsletter</Button>
-            <Button size="lg" variant="outline">Donate Now</Button>
-            <Button size="lg" variant="outline">Become a Volunteer</Button>
+          <h2 className="text-2xl font-semibold text-center mb-4">Stay Connected</h2>
+          <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
+            Subscribe to our newsletter for updates on events, services, and ways to get involved in supporting those affected by cancer.
+          </p>
+          <div className="max-w-md mx-auto mb-8">
+            <div className="flex gap-2">
+              <Input placeholder="Enter your email" className="flex-1" />
+              <Button>Subscribe</Button>
+            </div>
           </div>
-        </div>
-      </section>
-
-      {/* 3-Column Info Section */}
-      <section className="bg-gray-50 py-16">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Column 1: About Text */}
-            <div className="space-y-4">
-              <h3 className="text-xl font-semibold">About ARC</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                ARC Cancer Support was established to provide free, professional support to anyone
-                affected by cancer. Our holistic approach addresses the emotional, psychological,
-                and practical needs of patients and their families. We offer a wide range of
-                services including counselling, support groups, complementary therapies, and
-                practical assistance.
-              </p>
-            </div>
-
-            {/* Column 2: Links */}
-            <div className="space-y-4">
-              <h3 className="text-xl font-semibold">Quick Links</h3>
-              <ul className="space-y-2 text-sm">
-                <li><Link href="#" className="text-muted-foreground hover:text-primary">Our Services</Link></li>
-                <li><Link href="/volunteer" className="text-muted-foreground hover:text-primary">Volunteer</Link></li>
-                <li><Link href="#" className="text-muted-foreground hover:text-primary">Events</Link></li>
-                <li><Link href="#" className="text-muted-foreground hover:text-primary">Contact Us</Link></li>
-              </ul>
-              {/* Social Icons */}
-              <div className="flex gap-3 pt-4">
-                <Link href="#" className="text-muted-foreground hover:text-primary">
-                  <Facebook className="h-5 w-5" />
-                </Link>
-                <Link href="#" className="text-muted-foreground hover:text-primary">
-                  <Instagram className="h-5 w-5" />
-                </Link>
-                <Link href="#" className="text-muted-foreground hover:text-primary">
-                  <Linkedin className="h-5 w-5" />
-                </Link>
-                <Link href="#" className="text-muted-foreground hover:text-primary">
-                  <Youtube className="h-5 w-5" />
-                </Link>
-                <Link href="#" className="text-muted-foreground hover:text-primary">
-                  <XIcon className="h-5 w-5" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Column 3: Newsletter */}
-            <div className="space-y-4">
-              <h3 className="text-xl font-semibold">Newsletter</h3>
-              <p className="text-sm text-muted-foreground">
-                Subscribe to our newsletter for updates on events, services, and ways to get involved.
-              </p>
-              <div className="flex gap-2">
-                <Input placeholder="Your email" className="flex-1" />
-                <Button>Subscribe</Button>
-              </div>
-            </div>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Button size="lg" asChild>
+              <Link href="/donate">Donate</Link>
+            </Button>
+            <Button size="lg" variant="outline" asChild>
+              <Link href="/volunteer">Become a Volunteer</Link>
+            </Button>
           </div>
         </div>
       </section>

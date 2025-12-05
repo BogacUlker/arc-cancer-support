@@ -1,32 +1,50 @@
 "use client"
 
+import { useState, useMemo } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
-import { ChevronLeft } from "lucide-react"
+import { Input } from "@/components/ui/input"
+import { ChevronLeft, Search, X } from "lucide-react"
 import Link from "next/link"
 
 export default function ShoutOutPage() {
+  const [searchQuery, setSearchQuery] = useState("")
+  const [selectedVolunteer, setSelectedVolunteer] = useState<string | null>(null)
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+
+  // Alphabetically sorted volunteers
   const volunteers = [
-    "Sarah K.",
-    "Michael B.",
-    "Emma R.",
+    "Catherine W.",
     "David M.",
+    "Emma R.",
+    "James L.",
     "John D.",
     "Mary K.",
+    "Michael B.",
     "Patricia O.",
-    "James L.",
-    "Catherine W.",
+    "Sarah K.",
     "Thomas H."
   ]
+
+  const filteredVolunteers = useMemo(() => {
+    if (!searchQuery.trim()) return volunteers
+    return volunteers.filter(volunteer =>
+      volunteer.toLowerCase().includes(searchQuery.toLowerCase())
+    )
+  }, [searchQuery])
+
+  const handleSelectVolunteer = (volunteer: string) => {
+    setSelectedVolunteer(volunteer)
+    setSearchQuery("")
+    setIsDropdownOpen(false)
+  }
+
+  const handleClearSelection = () => {
+    setSelectedVolunteer(null)
+    setSearchQuery("")
+  }
 
   return (
     <div className="w-full">
@@ -56,24 +74,72 @@ export default function ShoutOutPage() {
                 </p>
               </div>
 
-              {/* Volunteer Name Search/Dropdown */}
+              {/* Volunteer Name Search Input */}
               <div className="space-y-2">
                 <Label>Select Volunteer</Label>
-                <Select>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Search volunteer name" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {volunteers.map((volunteer) => (
-                      <SelectItem
-                        key={volunteer}
-                        value={volunteer.toLowerCase().replace(/\s/g, "-")}
+                <div className="relative">
+                  {selectedVolunteer ? (
+                    <div className="flex items-center justify-between border rounded-md px-3 py-2 bg-primary/5">
+                      <span className="font-medium text-primary">{selectedVolunteer}</span>
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        size="icon"
+                        className="h-6 w-6"
+                        onClick={handleClearSelection}
                       >
-                        {volunteer}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
+                        <X className="h-4 w-4" />
+                      </Button>
+                    </div>
+                  ) : (
+                    <>
+                      <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                      <Input
+                        type="text"
+                        placeholder="Type to search volunteers..."
+                        className="pl-10"
+                        value={searchQuery}
+                        onChange={(e) => {
+                          setSearchQuery(e.target.value)
+                          setIsDropdownOpen(true)
+                        }}
+                        onFocus={() => setIsDropdownOpen(true)}
+                        onBlur={() => {
+                          // Delay closing to allow click on dropdown item
+                          setTimeout(() => setIsDropdownOpen(false), 200)
+                        }}
+                      />
+
+                      {/* Dropdown Results */}
+                      {isDropdownOpen && (
+                        <div className="absolute top-full left-0 right-0 mt-1 bg-white border rounded-md shadow-lg z-50 max-h-60 overflow-y-auto">
+                          {filteredVolunteers.length > 0 ? (
+                            filteredVolunteers.map((volunteer) => (
+                              <button
+                                key={volunteer}
+                                type="button"
+                                className="w-full text-left px-4 py-2 hover:bg-gray-100 transition-colors text-sm"
+                                onMouseDown={(e) => {
+                                  e.preventDefault()
+                                  handleSelectVolunteer(volunteer)
+                                }}
+                              >
+                                {volunteer}
+                              </button>
+                            ))
+                          ) : (
+                            <div className="px-4 py-3 text-sm text-muted-foreground">
+                              No volunteers found matching &ldquo;{searchQuery}&rdquo;
+                            </div>
+                          )}
+                        </div>
+                      )}
+                    </>
+                  )}
+                </div>
+                <p className="text-xs text-muted-foreground">
+                  Start typing a name to search (sorted alphabetically)
+                </p>
               </div>
 
               {/* Message Textarea */}
@@ -86,7 +152,11 @@ export default function ShoutOutPage() {
               </div>
 
               {/* Submit Button */}
-              <Button type="submit" className="w-full md:w-auto">
+              <Button
+                type="submit"
+                className="w-full md:w-auto"
+                disabled={!selectedVolunteer}
+              >
                 Send Shout-out
               </Button>
             </CardContent>

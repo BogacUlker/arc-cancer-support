@@ -122,51 +122,39 @@ export default function VolunteerSignUpPage() {
               />
             </div>
 
-            {/* Additional Fields */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <Label htmlFor="occupation" className="text-white">Current Occupation</Label>
-                <Input
-                  id="occupation"
-                  placeholder="Your current occupation"
-                  className="bg-white text-zinc-900"
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="location" className="text-white">Preferred Location</Label>
-                <Select>
-                  <SelectTrigger className="bg-white text-zinc-900">
-                    <SelectValue placeholder="Select" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="dublin">Dublin</SelectItem>
-                    <SelectItem value="cork">Cork</SelectItem>
-                    <SelectItem value="galway">Galway</SelectItem>
-                    <SelectItem value="limerick">Limerick</SelectItem>
-                    <SelectItem value="waterford">Waterford</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
+            {/* Current Occupation */}
+            <div className="space-y-2">
+              <Label htmlFor="occupation" className="text-white">Current Occupation</Label>
+              <Input
+                id="occupation"
+                placeholder="e.g. Teacher, Nurse, Student, Retired"
+                className="bg-white text-zinc-900"
+              />
+            </div>
+
+            {/* Age Range */}
+            <div className="space-y-2">
+              <Label className="text-white">Age Range</Label>
+              <Select>
+                <SelectTrigger className="bg-white text-zinc-900 max-w-xs">
+                  <SelectValue placeholder="Select your age range" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="prefer-not">Prefer not to say</SelectItem>
+                  <SelectItem value="18-25">18-25</SelectItem>
+                  <SelectItem value="26-35">26-35</SelectItem>
+                  <SelectItem value="36-45">36-45</SelectItem>
+                  <SelectItem value="46-55">46-55</SelectItem>
+                  <SelectItem value="56-65">56-65</SelectItem>
+                  <SelectItem value="65+">65+</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
 
             {/* Date of Birth */}
             <div className="space-y-2">
               <Label className="text-white">Date of Birth</Label>
-              <div className="flex gap-4">
-                <Select>
-                  <SelectTrigger className="bg-white text-zinc-900 w-full">
-                    <SelectValue placeholder="Select" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="prefer-not">Prefer not to say</SelectItem>
-                    <SelectItem value="18-25">18-25</SelectItem>
-                    <SelectItem value="26-35">26-35</SelectItem>
-                    <SelectItem value="36-45">36-45</SelectItem>
-                    <SelectItem value="46-55">46-55</SelectItem>
-                    <SelectItem value="56-65">56-65</SelectItem>
-                    <SelectItem value="65+">65+</SelectItem>
-                  </SelectContent>
-                </Select>
+              <div className="flex gap-4 flex-wrap">
                 <Select>
                   <SelectTrigger className="bg-white text-zinc-900 w-24">
                     <SelectValue placeholder="Day" />
@@ -232,7 +220,7 @@ export default function VolunteerSignUpPage() {
               <Label className="text-white">Areas of Interest</Label>
               <Select>
                 <SelectTrigger className="bg-white text-zinc-900">
-                  <SelectValue placeholder="Select" />
+                  <SelectValue placeholder="Select your area of interest" />
                 </SelectTrigger>
                 <SelectContent>
                   {interestAreas.map((area) => (
@@ -247,7 +235,7 @@ export default function VolunteerSignUpPage() {
             {/* Why Volunteer Textarea */}
             <div className="space-y-2">
               <Label htmlFor="motivation" className="text-white">
-                Why would you like to volunteer with ARC?
+                What motivates you to volunteer with ARC Cancer Support?
               </Label>
               <Textarea
                 id="motivation"
