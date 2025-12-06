@@ -91,7 +91,7 @@ export default function HomePage() {
 
           {/* Right: Hero Image */}
           <div className="relative">
-            <div className="aspect-[4/3] bg-gradient-to-br from-green-100 to-green-50 rounded-lg overflow-hidden">
+            <div className="aspect-[4/3] bg-gradient-to-br from-primary/20 to-primary/5 rounded-lg overflow-hidden">
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="w-full h-full bg-gray-200 flex items-center justify-center">
                   <span className="text-gray-400 text-lg">Hero Image</span>

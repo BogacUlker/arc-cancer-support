@@ -150,7 +150,7 @@ export default function VolunteerCommunityPage() {
 
       {/* Hero Banner - Large Angled Image */}
       <section className="relative">
-        <div className="aspect-[21/9] bg-gradient-to-r from-primary to-primary/80 relative overflow-hidden">
+        <div className="aspect-[21/9] bg-gradient-to-r from-green-600 to-green-700 relative overflow-hidden">
           <div className="absolute inset-0 flex items-center justify-center">
             <span className="text-white/50 text-xl">Community Hero Banner</span>
           </div>
@@ -215,7 +215,7 @@ export default function VolunteerCommunityPage() {
                     <h3 className="font-medium text-sm">{achievement.title}</h3>
                     <p className="text-xs text-muted-foreground">{achievement.description}</p>
                     {achievement.earned && (
-                      <span className="inline-flex items-center gap-1 text-xs text-primary font-medium">
+                      <span className="inline-flex items-center gap-1 text-xs text-green-600 font-medium">
                         <Sparkles className="h-3 w-3" /> Earned
                       </span>
                     )}
@@ -276,7 +276,7 @@ export default function VolunteerCommunityPage() {
                     <h3 className="font-medium">{module.title}</h3>
                     <p className="text-sm text-muted-foreground">{module.description}</p>
                     {module.status === 'completed' && (
-                      <span className="inline-flex items-center gap-1 text-xs text-primary font-medium bg-primary/10 px-2 py-1 rounded-full">
+                      <span className="inline-flex items-center gap-1 text-xs text-green-600 font-medium bg-green-50 px-2 py-1 rounded-full">
                         Completed
                       </span>
                     )}
@@ -353,6 +353,19 @@ export default function VolunteerCommunityPage() {
                 </div>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Search Section */}
+      <section className="bg-gray-50 py-12">
+        <div className="container mx-auto px-4">
+          <div className="max-w-md mx-auto">
+            <h2 className="text-lg font-medium text-center mb-4">Find a Volunteer</h2>
+            <Input
+              placeholder="Search by name..."
+              className="text-center"
+            />
           </div>
         </div>
       </section>

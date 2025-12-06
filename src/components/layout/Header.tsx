@@ -41,7 +41,7 @@ function NavDropdown({ label, items }: NavDropdownProps) {
             <Link
               key={item.href}
               href={item.href}
-              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-green-600 transition-colors"
+              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-primary transition-colors"
             >
               {item.label}
             </Link>

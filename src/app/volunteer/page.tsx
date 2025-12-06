@@ -44,7 +44,7 @@ export default function VolunteerPage() {
   return (
     <div className="w-full">
       {/* Hero Banner with Angled Image */}
-      <section className="relative bg-gradient-to-r from-green-600 to-green-700 text-white overflow-hidden">
+      <section className="relative bg-gradient-to-r from-primary to-primary/80 text-white overflow-hidden">
         <div className="container mx-auto px-4 py-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div className="space-y-6 relative z-10">

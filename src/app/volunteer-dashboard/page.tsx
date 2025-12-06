@@ -51,7 +51,7 @@ export default function TaskDashboardPage() {
                   <div className="aspect-video w-48 bg-gray-200 rounded-lg flex items-center justify-center">
                     <span className="text-gray-400 text-sm">Task Image</span>
                   </div>
-                  <SimpleBadge className="bg-green-100 text-green-800">Confirmed</SimpleBadge>
+                  <SimpleBadge className="bg-primary/10 text-primary">Confirmed</SimpleBadge>
                 </div>
                 <h3 className="font-medium mb-2">Reception Desk Support</h3>
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
