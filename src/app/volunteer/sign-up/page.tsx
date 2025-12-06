@@ -67,46 +67,46 @@ export default function VolunteerSignUpPage() {
           </div>
         </div>
 
-        {/* Dark Form Container */}
-        <div className="bg-zinc-900 rounded-lg p-8 text-white">
+        {/* Purple Form Container */}
+        <div className="bg-primary/10 rounded-lg p-8">
           <form className="space-y-8">
             {/* Personal Information */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2">
-                <Label htmlFor="firstName" className="text-white">First Name *</Label>
+                <Label htmlFor="firstName">First Name *</Label>
                 <Input
                   id="firstName"
                   placeholder="Enter your first name"
-                  className="bg-white text-zinc-900"
+                  className="bg-white"
                   required
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="lastName" className="text-white">Last Name *</Label>
+                <Label htmlFor="lastName">Last Name *</Label>
                 <Input
                   id="lastName"
                   placeholder="Enter your last name"
-                  className="bg-white text-zinc-900"
+                  className="bg-white"
                   required
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="email" className="text-white">Email Address *</Label>
+                <Label htmlFor="email">Email Address *</Label>
                 <Input
                   id="email"
                   type="email"
                   placeholder="your@email.com"
-                  className="bg-white text-zinc-900"
+                  className="bg-white"
                   required
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="phone" className="text-white">Phone Number *</Label>
+                <Label htmlFor="phone">Phone Number *</Label>
                 <Input
                   id="phone"
                   type="tel"
                   placeholder="+353 1 234 5678"
-                  className="bg-white text-zinc-900"
+                  className="bg-white"
                   required
                 />
               </div>
@@ -114,29 +114,29 @@ export default function VolunteerSignUpPage() {
 
             {/* Address */}
             <div className="space-y-2">
-              <Label htmlFor="address" className="text-white">Address</Label>
+              <Label htmlFor="address">Address</Label>
               <Input
                 id="address"
                 placeholder="Enter your full address"
-                className="bg-white text-zinc-900"
+                className="bg-white"
               />
             </div>
 
             {/* Current Occupation */}
             <div className="space-y-2">
-              <Label htmlFor="occupation" className="text-white">Current Occupation</Label>
+              <Label htmlFor="occupation">Current Occupation</Label>
               <Input
                 id="occupation"
                 placeholder="e.g. Teacher, Nurse, Student, Retired"
-                className="bg-white text-zinc-900"
+                className="bg-white"
               />
             </div>
 
             {/* Age Range */}
             <div className="space-y-2">
-              <Label className="text-white">Age Range</Label>
+              <Label>Age Range</Label>
               <Select>
-                <SelectTrigger className="bg-white text-zinc-900 max-w-xs">
+                <SelectTrigger className="bg-white max-w-xs">
                   <SelectValue placeholder="Select your age range" />
                 </SelectTrigger>
                 <SelectContent>
@@ -153,10 +153,10 @@ export default function VolunteerSignUpPage() {
 
             {/* Date of Birth */}
             <div className="space-y-2">
-              <Label className="text-white">Date of Birth</Label>
+              <Label>Date of Birth</Label>
               <div className="flex gap-4 flex-wrap">
                 <Select>
-                  <SelectTrigger className="bg-white text-zinc-900 w-24">
+                  <SelectTrigger className="bg-white w-24">
                     <SelectValue placeholder="Day" />
                   </SelectTrigger>
                   <SelectContent>
@@ -168,7 +168,7 @@ export default function VolunteerSignUpPage() {
                   </SelectContent>
                 </Select>
                 <Select>
-                  <SelectTrigger className="bg-white text-zinc-900 w-32">
+                  <SelectTrigger className="bg-white w-32">
                     <SelectValue placeholder="Month" />
                   </SelectTrigger>
                   <SelectContent>
@@ -180,7 +180,7 @@ export default function VolunteerSignUpPage() {
                   </SelectContent>
                 </Select>
                 <Select>
-                  <SelectTrigger className="bg-white text-zinc-900 w-28">
+                  <SelectTrigger className="bg-white w-28">
                     <SelectValue placeholder="Year" />
                   </SelectTrigger>
                   <SelectContent>
@@ -196,17 +196,17 @@ export default function VolunteerSignUpPage() {
 
             {/* Availability Checkboxes - 5x2 Grid */}
             <div className="space-y-4">
-              <Label className="text-white">Availability</Label>
+              <Label>Availability</Label>
               <div className="grid grid-cols-2 gap-3">
                 {availabilityOptions.map((option) => (
                   <div key={option} className="flex items-center space-x-2">
                     <Checkbox
                       id={option.replace(/\s/g, "-").toLowerCase()}
-                      className="border-white data-[state=checked]:bg-primary data-[state=checked]:border-primary"
+                      className="border-primary data-[state=checked]:bg-primary data-[state=checked]:border-primary"
                     />
                     <Label
                       htmlFor={option.replace(/\s/g, "-").toLowerCase()}
-                      className="text-sm text-white/90 font-normal cursor-pointer"
+                      className="text-sm font-normal cursor-pointer"
                     >
                       {option}
                     </Label>
@@ -217,9 +217,9 @@ export default function VolunteerSignUpPage() {
 
             {/* Interest Areas Dropdown */}
             <div className="space-y-2">
-              <Label className="text-white">Areas of Interest</Label>
+              <Label>Areas of Interest</Label>
               <Select>
-                <SelectTrigger className="bg-white text-zinc-900">
+                <SelectTrigger className="bg-white">
                   <SelectValue placeholder="Select your area of interest" />
                 </SelectTrigger>
                 <SelectContent>
@@ -234,13 +234,13 @@ export default function VolunteerSignUpPage() {
 
             {/* Why Volunteer Textarea */}
             <div className="space-y-2">
-              <Label htmlFor="motivation" className="text-white">
+              <Label htmlFor="motivation">
                 What motivates you to volunteer with ARC Cancer Support?
               </Label>
               <Textarea
                 id="motivation"
                 placeholder="Tell us about your motivation to volunteer, any relevant experience, and what you hope to gain from the experience..."
-                className="bg-white text-zinc-900 min-h-[150px]"
+                className="bg-white min-h-[150px]"
               />
             </div>
 
@@ -248,9 +248,9 @@ export default function VolunteerSignUpPage() {
             <div className="flex items-start space-x-2">
               <Checkbox
                 id="terms"
-                className="border-white data-[state=checked]:bg-primary data-[state=checked]:border-primary mt-1"
+                className="border-primary data-[state=checked]:bg-primary data-[state=checked]:border-primary mt-1"
               />
-              <Label htmlFor="terms" className="text-sm text-white/90 font-normal cursor-pointer">
+              <Label htmlFor="terms" className="text-sm font-normal cursor-pointer">
                 I agree to the terms and conditions and understand that my application will be processed
                 in accordance with ARC&apos;s privacy policy. I consent to a Garda vetting check if required
                 for my volunteer role.
