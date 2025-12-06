@@ -42,7 +42,7 @@ export default function HomePage() {
       icon: Users,
       title: "Join Our Community",
       description: "Connect with others who understand your journey. Our support groups and community events provide a safe space for sharing and healing.",
-      href: "/volunteer"
+      href: "/volunteer-community"
     },
     {
       icon: BookOpen,
