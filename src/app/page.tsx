@@ -20,7 +20,7 @@ export default function HomePage() {
 
   const testimonials = [
     {
-      quote: "ARC Cancer Support has been a lifeline for our family. The volunteers are compassionate, understanding, and always there when we needed someone to talk to. Their support services helped us navigate through the most difficult time of our lives.",
+      quote: "ARC Cancer Support has been a lifeline for our family. The volunteers are compassionate, understanding, and always there when we need someone to talk to. Their support services helped us navigate through the most difficult time of our lives.",
       author: "Sarah M.",
       role: "Family Member"
     },
@@ -42,7 +42,7 @@ export default function HomePage() {
       icon: Users,
       title: "Join Our Community",
       description: "Connect with others who understand your journey. Our support groups and community events provide a safe space for sharing and healing.",
-      href: "/volunteer-community"
+      href: "/volunteer"
     },
     {
       icon: BookOpen,

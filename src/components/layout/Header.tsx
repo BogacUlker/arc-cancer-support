@@ -109,10 +109,10 @@ export function Header() {
             <NavDropdown label="Resources" items={navigationItems.resources} />
           </nav>
 
-          {/* Language Toggle & User */}
+          {/* Donate CTA & User */}
           <div className="flex items-center gap-3">
-            <Button variant="outline" size="sm" className="text-xs">
-              EN
+            <Button size="sm" className="bg-primary hover:bg-primary/90" asChild>
+              <Link href="/donate">Donate</Link>
             </Button>
             <Button variant="ghost" size="icon">
               <User className="h-5 w-5" />

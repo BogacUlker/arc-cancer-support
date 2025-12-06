@@ -111,9 +111,9 @@ export default function VolunteerPage() {
                 <p className="text-muted-foreground italic leading-relaxed">
                   &ldquo;{testimonials[currentTestimonial].quote}&rdquo;
                 </p>
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                   <div className="flex items-center gap-4">
-                    <Avatar className="h-12 w-12">
+                    <Avatar className="h-12 w-12 flex-shrink-0">
                       <AvatarFallback className="bg-primary/10 text-primary">
                         {testimonials[currentTestimonial].author.charAt(0)}
                       </AvatarFallback>
@@ -123,7 +123,7 @@ export default function VolunteerPage() {
                       <p className="text-sm text-muted-foreground">{testimonials[currentTestimonial].role}</p>
                     </div>
                   </div>
-                  <Button variant="outline" asChild>
+                  <Button variant="outline" className="flex-shrink-0" asChild>
                     <Link href="/volunteer/sign-up">Become a Volunteer</Link>
                   </Button>
                 </div>
