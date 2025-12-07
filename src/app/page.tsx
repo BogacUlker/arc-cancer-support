@@ -152,7 +152,9 @@ export default function HomePage() {
                   className="object-cover"
                 />
               </div>
-              <CardContent className="pt-4">
+              <CardContent className="pt-4 space-y-2">
+                <h3 className="font-semibold">Cancer Support Workshop</h3>
+                <p className="text-sm text-muted-foreground">Join our weekly support groups and connect with others on similar journeys.</p>
                 <Button variant="outline" size="sm" className="w-full">
                   Read More
                 </Button>
@@ -167,7 +169,9 @@ export default function HomePage() {
                   className="object-cover"
                 />
               </div>
-              <CardContent className="pt-4">
+              <CardContent className="pt-4 space-y-2">
+                <h3 className="font-semibold">Family Support Services</h3>
+                <p className="text-sm text-muted-foreground">Resources and guidance for families navigating the cancer journey together.</p>
                 <Button variant="outline" size="sm" className="w-full">
                   Read More
                 </Button>
@@ -182,7 +186,9 @@ export default function HomePage() {
                   className="object-cover"
                 />
               </div>
-              <CardContent className="pt-4">
+              <CardContent className="pt-4 space-y-2">
+                <h3 className="font-semibold">Community Fundraiser</h3>
+                <p className="text-sm text-muted-foreground">Our volunteers raised funds at the annual community walk event.</p>
                 <Button variant="outline" size="sm" className="w-full">
                   Read More
                 </Button>

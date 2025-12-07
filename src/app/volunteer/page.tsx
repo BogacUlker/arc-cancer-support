@@ -44,32 +44,28 @@ export default function VolunteerPage() {
 
   return (
     <div className="w-full">
-      {/* Hero Banner with Angled Image */}
-      <section className="relative bg-gradient-to-r from-primary to-primary/80 text-white overflow-hidden">
-        <div className="container mx-auto px-4 py-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            <div className="space-y-6 relative z-10">
+      {/* Hero Banner - Full Width Image */}
+      <section className="relative">
+        <div className="aspect-[21/9] bg-gradient-to-r from-primary to-primary/80 relative overflow-hidden">
+          <Image
+            src="/welcome-header.jpg"
+            alt="ARC volunteer helping a visitor with information"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-primary/40"></div>
+          {/* Content overlay */}
+          <div className="absolute inset-0 flex items-center">
+            <div className="container mx-auto px-4">
               <Button variant="secondary" className="rounded-full" asChild>
                 <Link href="/volunteer/sign-up">Join Our Team</Link>
               </Button>
             </div>
-            <div className="relative">
-              <div className="aspect-[16/9] bg-white/10 rounded-lg transform -skew-x-3 overflow-hidden">
-                <div className="absolute inset-0 transform skew-x-3">
-                  <Image
-                    src="/welcome-header.jpg"
-                    alt="ARC volunteer helping a visitor with information"
-                    fill
-                    className="object-cover"
-                    priority
-                  />
-                </div>
-              </div>
-            </div>
           </div>
+          {/* Angled overlay */}
+          <div className="absolute bottom-0 left-0 right-0 h-24 bg-white transform -skew-y-2 origin-right translate-y-12"></div>
         </div>
-        {/* Angled bottom edge */}
-        <div className="absolute bottom-0 left-0 right-0 h-16 bg-white transform -skew-y-2 origin-left translate-y-8"></div>
       </section>
 
       {/* Value Props - 4 Icons */}
