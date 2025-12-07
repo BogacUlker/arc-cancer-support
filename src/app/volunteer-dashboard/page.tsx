@@ -13,6 +13,7 @@ import {
   Flag
 } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 // Simple Badge component since we haven't created it yet
 function SimpleBadge({ children, className }: { children: React.ReactNode; className?: string }) {
@@ -48,8 +49,13 @@ export default function TaskDashboardPage() {
             <Card>
               <CardContent className="p-6">
                 <div className="flex justify-between items-start mb-4">
-                  <div className="aspect-video w-48 bg-gray-200 rounded-lg flex items-center justify-center">
-                    <span className="text-gray-400 text-sm">Task Image</span>
+                  <div className="aspect-video w-48 rounded-lg overflow-hidden relative">
+                    <Image
+                      src="/welcome-header.jpg"
+                      alt="Reception desk support"
+                      fill
+                      className="object-cover"
+                    />
                   </div>
                   <SimpleBadge className="bg-primary/10 text-primary">Confirmed</SimpleBadge>
                 </div>
@@ -68,8 +74,13 @@ export default function TaskDashboardPage() {
             <Card>
               <CardContent className="p-6">
                 <div className="flex justify-between items-start mb-4">
-                  <div className="aspect-video w-48 bg-gray-200 rounded-lg flex items-center justify-center">
-                    <span className="text-gray-400 text-sm">Task Image</span>
+                  <div className="aspect-video w-48 rounded-lg overflow-hidden relative">
+                    <Image
+                      src="/arc-event.jpg"
+                      alt="ARC fundraising event setup"
+                      fill
+                      className="object-cover"
+                    />
                   </div>
                   <SimpleBadge className="bg-yellow-100 text-yellow-800">Pending</SimpleBadge>
                 </div>

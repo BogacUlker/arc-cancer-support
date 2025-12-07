@@ -15,6 +15,7 @@ import {
   Home
 } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import { useState } from "react"
 
 export default function VolunteerPage() {
@@ -54,8 +55,14 @@ export default function VolunteerPage() {
             </div>
             <div className="relative">
               <div className="aspect-[16/9] bg-white/10 rounded-lg transform -skew-x-3 overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center transform skew-x-3">
-                  <span className="text-white/50 text-lg">Volunteer Hero Image</span>
+                <div className="absolute inset-0 transform skew-x-3">
+                  <Image
+                    src="/welcome-header.jpg"
+                    alt="ARC volunteer helping a visitor with information"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
                 </div>
               </div>
             </div>

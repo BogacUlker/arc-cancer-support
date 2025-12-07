@@ -21,6 +21,7 @@ import {
   Video
 } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import { useState } from "react"
 
 export default function VolunteerCommunityPage() {
@@ -151,9 +152,14 @@ export default function VolunteerCommunityPage() {
       {/* Hero Banner - Large Angled Image */}
       <section className="relative">
         <div className="aspect-[21/9] bg-gradient-to-r from-primary to-primary/80 relative overflow-hidden">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <span className="text-white/50 text-xl">Community Hero Banner</span>
-          </div>
+          <Image
+            src="/volunteer-group.jpg"
+            alt="ARC volunteers at a community event wearing branded vests"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-primary/30"></div>
           {/* Angled overlay */}
           <div className="absolute bottom-0 left-0 right-0 h-24 bg-white transform -skew-y-2 origin-right translate-y-12"></div>
         </div>

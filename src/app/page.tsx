@@ -13,6 +13,7 @@ import {
   ChevronRight,
 } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import { useState } from "react"
 
 export default function HomePage() {
@@ -92,11 +93,13 @@ export default function HomePage() {
           {/* Right: Hero Image */}
           <div className="relative">
             <div className="aspect-[4/3] bg-gradient-to-br from-primary/20 to-primary/5 rounded-lg overflow-hidden">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-full h-full bg-gray-200 flex items-center justify-center">
-                  <span className="text-gray-400 text-lg">Hero Image</span>
-                </div>
-              </div>
+              <Image
+                src="/christmas-family.jpg"
+                alt="Family celebrating together during the holiday season"
+                fill
+                className="object-cover"
+                priority
+              />
             </div>
           </div>
         </div>
@@ -140,18 +143,51 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <h2 className="text-2xl font-semibold text-center mb-8">Latest News & Events</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[1, 2, 3].map((item) => (
-              <Card key={item} className="overflow-hidden hover:shadow-lg transition-shadow">
-                <div className="aspect-video bg-gray-200 flex items-center justify-center">
-                  <span className="text-gray-400">Image {item}</span>
-                </div>
-                <CardContent className="pt-4">
-                  <Button variant="outline" size="sm" className="w-full">
-                    Read More
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
+            <Card className="overflow-hidden hover:shadow-lg transition-shadow">
+              <div className="aspect-video relative">
+                <Image
+                  src="/martin-landscape.jpg"
+                  alt="Support group discussion at ARC"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <CardContent className="pt-4">
+                <Button variant="outline" size="sm" className="w-full">
+                  Read More
+                </Button>
+              </CardContent>
+            </Card>
+            <Card className="overflow-hidden hover:shadow-lg transition-shadow">
+              <div className="aspect-video relative">
+                <Image
+                  src="/family-support.jpg"
+                  alt="Family enjoying quality time together"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <CardContent className="pt-4">
+                <Button variant="outline" size="sm" className="w-full">
+                  Read More
+                </Button>
+              </CardContent>
+            </Card>
+            <Card className="overflow-hidden hover:shadow-lg transition-shadow">
+              <div className="aspect-video relative">
+                <Image
+                  src="/volunteer-group.jpg"
+                  alt="ARC volunteers at community event"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <CardContent className="pt-4">
+                <Button variant="outline" size="sm" className="w-full">
+                  Read More
+                </Button>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
