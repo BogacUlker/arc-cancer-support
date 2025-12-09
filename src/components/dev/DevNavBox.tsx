@@ -17,9 +17,6 @@ const pages = [
 export function DevNavBox() {
   const [isOpen, setIsOpen] = useState(false)
 
-  // Only show in development
-  if (process.env.NODE_ENV !== "development") return null
-
   return (
     <div className="fixed bottom-4 left-4 z-[9999]">
       {/* Toggle Button */}
