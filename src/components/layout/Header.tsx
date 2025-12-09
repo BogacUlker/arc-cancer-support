@@ -36,16 +36,18 @@ function NavDropdown({ label, items }: NavDropdownProps) {
       </Button>
 
       {isOpen && (
-        <div className="absolute top-full left-0 mt-1 min-w-[180px] bg-white border rounded-lg shadow-lg py-2 z-50">
-          {items.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-primary transition-colors"
-            >
-              {item.label}
-            </Link>
-          ))}
+        <div className="absolute top-full left-0 pt-2 min-w-[180px] z-50">
+          <div className="bg-white border rounded-lg shadow-lg py-2">
+            {items.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-primary transition-colors"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
         </div>
       )}
     </div>
